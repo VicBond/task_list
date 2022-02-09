@@ -41,6 +41,12 @@ const tasks = [
 
   const listContainer = document.querySelector('.tasks-list-section .list-group');
 
+  const form = document.forms['addTask'];
+  const inputTitle = form.elements['title'];
+  const inputBody = form.elements['body'];
+
+  console.log('inputTitle:', inputTitle, 'inputBody:', inputBody);
+
   renderAllTasks(objOfTasks); // render tasks to page using renderAllTasks function
   // console.log(objOfTasks);
   function renderAllTasks(tasksList) {
