@@ -46,9 +46,23 @@ const tasks = [
 
     const fragment = document.createDocumentFragment();
     Object.values(tasksList).forEach(task => {
-      console.log(task);
+      // console.log(task);
+      const li = listItemTemplate(task);
     });
   };
 
+  function listItemTemplate({_id, title, body} = {}) {
+    // console.log(_id, title);
+    const li = document.createElement('li');
+    li.classList.add('list-group-item', 'd-flex', 'align-items-center', 'flex-wrap', 'mt-2');
+    
+    const span = document.createElement('span');
+    span.textContent = title;
+    span.style.fontWeight = 'bold';
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete task';
+    deleteBtn.classList.add('add', 'btn-danger', 'ml-auto', 'delete-btn');
+  };
   
 })(tasks);
