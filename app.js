@@ -45,10 +45,13 @@ const tasks = [
   const inputTitle = form.elements['title'];
   const inputBody = form.elements['body'];
 
-  console.log('inputTitle:', inputTitle, 'inputBody:', inputBody);
+  // console.log('inputTitle:', inputTitle, 'inputBody:', inputBody);
 
   renderAllTasks(objOfTasks); // render tasks to page using renderAllTasks function
   // console.log(objOfTasks);
+
+  form.addEventListener('submit', onFormSubmitHandler); //listen to submit event
+
   function renderAllTasks(tasksList) {
     if(!tasksList) {
       console.error('No tasks to render');
@@ -89,4 +92,8 @@ const tasks = [
     return li;
   };
   
+  function onFormSubmitHandler(event) {
+    event.preventDefault();
+
+  };
 })(tasks);
