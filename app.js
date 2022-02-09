@@ -44,6 +44,11 @@ const tasks = [
       return ;
     }
 
+    const fragment = document.createDocumentFragment();
+    Object.values(tasksList).forEach(task => {
+      console.log(task);
+    });
   };
 
+  
 })(tasks);
