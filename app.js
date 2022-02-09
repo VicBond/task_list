@@ -48,6 +48,7 @@ const tasks = [
     Object.values(tasksList).forEach(task => {
       // console.log(task);
       const li = listItemTemplate(task);
+      fragment.appendChild(li);
     });
   };
 
@@ -63,6 +64,17 @@ const tasks = [
     const deleteBtn = document.createElement('button');
     deleteBtn.textContent = 'Delete task';
     deleteBtn.classList.add('add', 'btn-danger', 'ml-auto', 'delete-btn');
+
+    const article = document.createElement('p');
+    article.textContent = body;
+    article.classList.add('mt-2', 'w-100');
+
+    li.appendChild(span);
+    li.appendChild(deleteBtn);
+    li.appendChild(article);
+    console.log(li);
+
+    return li;
   };
   
 })(tasks);
