@@ -36,6 +36,14 @@ const tasks = [
     acc[task._id] = task;
     return acc;
   }, {});
+  renderAllTasks(objOfTasks); // render tasks to page using renderAllTasks function
+  // console.log(objOfTasks);
+  function renderAllTasks(tasksList) {
+    if(!tasksList) {
+      console.error('No tasks to render');
+      return ;
+    }
 
-  console.log(objOfTasks);
+  };
+
 })(tasks);
