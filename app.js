@@ -47,6 +47,7 @@ const tasks = [
 
   // console.log('inputTitle:', inputTitle, 'inputBody:', inputBody);
 
+  //events
   renderAllTasks(objOfTasks); // render tasks to page using renderAllTasks function
   // console.log(objOfTasks);
 
@@ -94,6 +95,16 @@ const tasks = [
   
   function onFormSubmitHandler(event) {
     event.preventDefault();
+    const titleValue = inputTitle.value;
+    const bodyValue = inputBody.value;
+    console.log('titleValue:',titleValue ,'bodyValue:', bodyValue);
+    if(!titleValue || !bodyValue) {
+      alert('Please enter a title and body');
+      return;
+    }
+
 
   };
+
+  
 })(tasks);
