@@ -36,6 +36,11 @@ const tasks = [
     acc[task._id] = task;
     return acc;
   }, {});
+
+  //show elements
+
+  const listContainer = document.querySelector('.tasks-list-section .list-group');
+
   renderAllTasks(objOfTasks); // render tasks to page using renderAllTasks function
   // console.log(objOfTasks);
   function renderAllTasks(tasksList) {
@@ -50,6 +55,7 @@ const tasks = [
       const li = listItemTemplate(task);
       fragment.appendChild(li);
     });
+    listContainer.appendChild(fragment);
   };
 
   function listItemTemplate({_id, title, body} = {}) {
