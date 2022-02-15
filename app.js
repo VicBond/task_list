@@ -136,7 +136,8 @@ const tasks = [
     return isConfirm;
   };
 
-  function deleteTaskFromHtml(el){
+  function deleteTaskFromHtml(confirmed, el){
+    if(!confirmed) return; //delete just in case it confirmed
     el.remove();
   };
 
@@ -150,6 +151,7 @@ const tasks = [
       // console.log(id);
       const confirmed = deleteTasks(id);
       // console.log(confirmed);
+      deleteTaskFromHtml(confirmed, parent);
     }
   }
   
