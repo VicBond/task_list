@@ -127,9 +127,13 @@ const tasks = [
   };
 
   function deleteTasks(id) {
-    console.log(objOfTasks[id]);
-    const isConfirm = confirm('Are you sure you want to delete?');
-
+    // console.log(objOfTasks[id]);
+    const { title } = objOfTasks[id];
+    const isConfirm = confirm(`Are you sure you want to delete : ${title}`);
+    // console.log(isConfirm);
+    if(!isConfirm) return isConfirm; //not confirmed then return
+    delete objOfTasks[id];
+    return isConfirm;
   };
 
   function onDeleteHandler({ target }) {
