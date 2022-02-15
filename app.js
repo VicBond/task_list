@@ -104,6 +104,8 @@ const tasks = [
     }
     const task = createNewTask(titleValue, bodyValue);
     // console.log(objOfTasks);
+    const listItem = listItemTemplate(task);
+    console.log(listItem);
   };
 
   function createNewTask(title, body) {
