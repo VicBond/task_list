@@ -73,6 +73,7 @@ const tasks = [
     // console.log(_id, title);
     const li = document.createElement('li');
     li.classList.add('list-group-item', 'd-flex', 'align-items-center', 'flex-wrap', 'mt-2');
+    li.setAttribute('data-task-id', _id);
     
     const span = document.createElement('span');
     span.textContent = title;
@@ -123,10 +124,24 @@ const tasks = [
     objOfTasks[newTask._id] = newTask;
 
     return { ...newTask };
-  }
+  };
 
-  function onDeleteHandler(event) {
-    console.log(event.target);
+  function deleteTasks(id) {
+    console.log(objOfTasks[id]);
+    const isConfirm = confirm('Are you sure you want to delete?');
+
+  };
+
+  function onDeleteHandler({ target }) {
+    // console.log(event.target);
+    if (target.classList.contains('delete-btn')) {
+      // console.log('delete');
+      const parent = target.closest('[data-task-id]');
+      const id = parent.dataset.taskId;
+      // console.log(parent);
+      // console.log(id);
+      deleteTasks(id);
+    }
   }
   
 })(tasks);
