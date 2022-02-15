@@ -97,7 +97,7 @@ const tasks = [
     event.preventDefault();
     const titleValue = inputTitle.value;
     const bodyValue = inputBody.value;
-    console.log('titleValue:',titleValue ,'bodyValue:', bodyValue);
+    // console.log('titleValue:',titleValue ,'bodyValue:', bodyValue);
     if(!titleValue || !bodyValue) {
       alert('Please enter a title and body');
       return;
@@ -105,7 +105,8 @@ const tasks = [
     const task = createNewTask(titleValue, bodyValue);
     // console.log(objOfTasks);
     const listItem = listItemTemplate(task);
-    console.log(listItem);
+    // console.log(listItem);
+    listContainer.insertAdjacentElement("afterbegin", listItem); //add li task in front of others tasks
   };
 
   function createNewTask(title, body) {
