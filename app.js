@@ -52,6 +52,7 @@ const tasks = [
   // console.log(objOfTasks);
 
   form.addEventListener('submit', onFormSubmitHandler); //listen to submit event
+  listContainer.addEventListener('click', onDeleteHandler); //listen to delete event
 
   function renderAllTasks(tasksList) {
     if(!tasksList) {
@@ -122,6 +123,10 @@ const tasks = [
     objOfTasks[newTask._id] = newTask;
 
     return { ...newTask };
+  }
+
+  function onDeleteHandler(event) {
+    console.log(event.target);
   }
   
 })(tasks);
