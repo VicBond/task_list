@@ -136,6 +136,10 @@ const tasks = [
     return isConfirm;
   };
 
+  function deleteTaskFromHtml(el){
+    el.remove();
+  };
+
   function onDeleteHandler({ target }) {
     // console.log(event.target);
     if (target.classList.contains('delete-btn')) {
@@ -144,7 +148,8 @@ const tasks = [
       const id = parent.dataset.taskId;
       // console.log(parent);
       // console.log(id);
-      deleteTasks(id);
+      const confirmed = deleteTasks(id);
+      // console.log(confirmed);
     }
   }
   
