@@ -102,9 +102,18 @@ const tasks = [
       alert('Please enter a title and body');
       return;
     }
-
-
+    const task = createNewTask(titleValue, bodyValue);
   };
 
+  function createNewTask(title, body) {
+    const newTask = { 
+      title,
+      body,
+      completed: false,
+      _id: `task-${Math.random()}`,
+    };
+
+    console.log(newTask);
+  }
   
 })(tasks);
