@@ -103,6 +103,7 @@ const tasks = [
       return;
     }
     const task = createNewTask(titleValue, bodyValue);
+    // console.log(objOfTasks);
   };
 
   function createNewTask(title, body) {
@@ -113,7 +114,10 @@ const tasks = [
       _id: `task-${Math.random()}`,
     };
 
-    console.log(newTask);
+    // console.log(newTask);
+    objOfTasks[newTask._id] = newTask;
+
+    return { ...newTask };
   }
   
 })(tasks);
