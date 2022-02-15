@@ -107,6 +107,7 @@ const tasks = [
     const listItem = listItemTemplate(task);
     // console.log(listItem);
     listContainer.insertAdjacentElement("afterbegin", listItem); //add li task in front of others tasks
+    form.reset(); // add clean inputs in form
   };
 
   function createNewTask(title, body) {
