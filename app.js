@@ -232,6 +232,7 @@ const tasks = [
     }
     setTheme(selectedTheme);
     lastSelectedTheme = selectedTheme;
+    localStorage.setItem('app_theme', selectedTheme);
   };
 
   function setTheme(name) {
