@@ -102,7 +102,7 @@ const tasks = [
       '--input-focus-box-shadow': '0 0 0 0.2rem rgba(141, 143, 146, 0.25)',
     },
   };
-
+  let lastSelectedTheme = 'default';
   //show elements
 
   const listContainer = document.querySelector('.tasks-list-section .list-group');
@@ -223,18 +223,23 @@ const tasks = [
   };
   
   function onThemeSelectedHandler(event) {
-    const selectTheme = themeSelect.value;
-    const isConfirmed = confirm(`Are you sure you want to change a theme to : ${selectTheme} ?`);
+    const selectedTheme = themeSelect.value;
+    const isConfirmed = confirm(`Are you sure you want to change a theme to : ${selectedTheme} ?`);
     
-    if(!isConfirmed) return;
-    setTheme(selectTheme);
+    if(!isConfirmed) {
+      themeSelect.value = lastSelectedTheme;
+      return;
+    }
+    setTheme(selectedTheme);
+    lastSelectedTheme = selectedTheme;
   };
 
   function setTheme(name) {
     // console.log(name);
-    const selectThemeObj = themes[name];
-    Object.entries(selectThemeObj).forEach(([key, value]) => {
+    const selectedThemeObj = themes[name];
+    Object.entries(selectedThemeObj).forEach(([key, value]) => {
       // console.log(key, value);
+      document.documentElement.style.setProperty(key, value);
     });
   };
 
