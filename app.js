@@ -231,7 +231,11 @@ const tasks = [
   };
 
   function setTheme(name) {
-    console.log(name);
+    // console.log(name);
+    const selectThemeObj = themes[name];
+    Object.entries(selectThemeObj).forEach(([key, value]) => {
+      // console.log(key, value);
+    });
   };
 
 })(tasks);
