@@ -119,6 +119,7 @@ const tasks = [
 
   form.addEventListener('submit', onFormSubmitHandler); //listen to submit event
   listContainer.addEventListener('click', onDeleteHandler); //listen to delete event
+  themeSelect.addEventListener('change', onThemeSelectedHandler);
 
   function renderAllTasks(tasksList) {
     if(!tasksList) {
@@ -219,10 +220,18 @@ const tasks = [
       // console.log(confirmed);
       deleteTaskFromHtml(confirmed, parent);
     }
-  }
+  };
   
   function onThemeSelectedHandler(event) {
+    const selectTheme = themeSelect.value;
+    const isConfirmed = confirm(`Are you sure you want to change a theme to : ${selectTheme} ?`);
+    
+    if(!isConfirmed) return;
+    setTheme(selectTheme);
+  };
 
-  }
+  function setTheme(name) {
+    console.log(name);
+  };
 
 })(tasks);
